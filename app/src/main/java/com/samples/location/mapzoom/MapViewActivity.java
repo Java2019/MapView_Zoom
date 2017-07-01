@@ -1,14 +1,19 @@
 package com.samples.location.mapzoom;
 
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
+import android.location.*;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class MapViewActivity extends MapActivity {
 
@@ -99,6 +104,48 @@ public class MapViewActivity extends MapActivity {
     }
 
     public void printLocation(Location location){
+        if (location != null){
 
+            double lat = location.getLatitude();
+            double lon = location.getLongitude();
+
+            GeoPoint geoPoint = new GeoPoint((int)(lat * 1E6), (int)(lon * 1E6));
+
+            controller.animateTo(geoPoint);
+
+            ImageView marker = new ImageView(getApplicationContext());
+            marker.setImageResource(R.drawable.star);
+            MapView.LayoutParams markerParams = new MapView.LayoutParams(
+                    MapView.LayoutParams.WRAP_CONTENT, MapView.LayoutParams.WRAP_CONTENT,
+                    geoPoint, MapView.LayoutParams.TOP_LEFT );
+            map.addView(marker, markerParams);
+
+            // Отображаем координаты местоположения на экране
+            text.setText(
+                    String.format("Lat: %4.2f, Long: %4.2f", lat, lon));
+
+            try{
+                // Используем Geocoder для получения информации
+                // о местоположении и выводим ее на экран
+                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+                List<Address> addresses = geocoder.getFromLocation(lat, lon, 1);
+                if (addresses.size() > 0){
+                    Address address = addresses.get(0);
+                    for (int i = 0; i<address.getMaxAddressLineIndex(); i++){
+                        text.append(", " + address.getAddressLine(i));
+                    }
+                    text.append(", " + address.getCountryName());
+                }
+            }
+            catch (IOException e){
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+            }
+            catch (Exception e){
+                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }
+        else {
+            text.setText("Unabale get location");
+        }
     }
 }
