@@ -37,9 +37,9 @@
                 android:progress="0"/>
     </LinearLayout>
     <com.google.android.maps.MapView
-            android:apiKey="AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A"
             android:id="@+id/map"
-            android:width="match_parent"
-            android:height="match_parent"
+            android:apiKey="AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:clickable="true"/>
 </LinearLayout>

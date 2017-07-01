@@ -3,7 +3,7 @@ package com.samples.location.mapzoom;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MapViewActivity extends AppCompatActivity {
+public class MapViewActivity extends MapActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
