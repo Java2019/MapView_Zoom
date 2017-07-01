@@ -6,23 +6,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context="com.samples.location.mapzoom.MapViewActivity">
-<LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
     <TextView
-            android:text="Hello World!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <TextView
-            android:text="Hello World!"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <SeekBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-</LinearLayout>
+            android:id="@+id/text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"/>
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+                android:text="Zoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+        <TextView
+                android:id="@+id/zoom"
+                android:text="0.0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+        <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:progress="0"/>
+    </LinearLayout>
     <com.google.android.maps.MapView
-        android:apiKey = "AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A"
-        android:id="@+id/map"
-        android:width="match_parent"
-        android:height="match_parent"
-        android:clickable="true"/>
+            android:apiKey="AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A"
+            android:id="@+id/map"
+            android:width="match_parent"
+            android:height="match_parent"
+            android:clickable="true"/>
 </LinearLayout>
