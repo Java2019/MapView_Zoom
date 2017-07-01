@@ -44,7 +44,7 @@ public class MapViewActivity extends MapActivity {
 
         @Override
         public void onProviderDisabled(String s) {
-            printLocation(null);
+            //printLocation(null);
         }
     };
 
@@ -113,12 +113,14 @@ public class MapViewActivity extends MapActivity {
 
             controller.animateTo(geoPoint);
 
+            /*
             ImageView marker = new ImageView(getApplicationContext());
             marker.setImageResource(R.drawable.star);
             MapView.LayoutParams markerParams = new MapView.LayoutParams(
                     MapView.LayoutParams.WRAP_CONTENT, MapView.LayoutParams.WRAP_CONTENT,
                     geoPoint, MapView.LayoutParams.TOP_LEFT );
             map.addView(marker, markerParams);
+            */
 
             // Отображаем координаты местоположения на экране
             text.setText(
