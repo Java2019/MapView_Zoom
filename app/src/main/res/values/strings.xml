@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MapView_Zoom</string>
+    <string name="google_maps_key"> AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A</string>
 </resources>

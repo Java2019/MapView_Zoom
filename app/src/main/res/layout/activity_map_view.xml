@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <TextView
-                android:text="Zoom"
+                android:text="Zoom: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -36,10 +36,10 @@
                 android:layout_height="wrap_content"
                 android:progress="0"/>
     </LinearLayout>
-    <com.google.android.maps.MapView
+    <fragment
             android:id="@+id/map"
-            android:apiKey="AIzaSyCDEpwSt9jJ8rhZqTwhkCnFIXRT6eWaG1A"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clickable="true"/>
+            android:layout_gravity="center"/>
 </LinearLayout>
